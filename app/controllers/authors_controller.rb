@@ -4,8 +4,32 @@ class AuthorsController < ApplicationController
     render json: authors
   end
 
-  def hello
+  def show
     author = Author.find(params[:id])
     render json: author
+  end
+
+  def create
+    author = Author.create(
+      name: params[:name],
+      age: params[:age]
+    )
+    render json: author
+  end
+
+  def update
+    author = Author.find(params[:id])
+    author.update(
+      name: params[:name],
+      age: params[:age]
+    )
+
+    render json: author
+  end
+
+  def destroy
+    author = Author.find(params[:id])
+    author.destroy
+    render json: {message: "Author Deleted Successfully"}
   end
 end
