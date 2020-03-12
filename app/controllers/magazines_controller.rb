@@ -1,6 +1,6 @@
 class MagazinesController < ApplicationController
     def index
-        magazines = Magazine.all
-        render json: magazines, include: [:articles]
+        magazines = Magazine.find_mags(params[:category])
+        render json: magazines, include: [:articles,]
     end
 end

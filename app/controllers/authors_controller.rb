@@ -14,7 +14,7 @@ class AuthorsController < ApplicationController
       name: params[:name],
       age: params[:age]
     )
-    render json: author
+    render json: { message: "Author created!" }
   end
 
   def update
